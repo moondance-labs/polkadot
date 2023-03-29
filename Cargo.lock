@@ -11844,6 +11844,7 @@ dependencies = [
 name = "test-parachain-halt"
 version = "0.9.40"
 dependencies = [
+ "rustversion",
  "substrate-wasm-builder",
 ]
 
