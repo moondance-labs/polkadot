@@ -152,6 +152,12 @@ impl CollationGenerationSubsystem {
 				}
 				false
 			},
+			Ok(FromOrchestra::Communication {
+				msg: CollationGenerationMessage::Reinitialize(config),
+			}) => {
+				self.config = Some(Arc::new(config));
+				false
+			},
 			Ok(FromOrchestra::Signal(OverseerSignal::BlockFinalized(..))) => false,
 			Err(err) => {
 				gum::error!(
